@@ -15,12 +15,12 @@ namespace Champion.Slack
 
         public Task<HttpResponseMessage> SendAsync(SlackMessage message)
         {
-            throw NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public HttpResponseMessage Send(SlackMessage message)
         {
-            throw NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }
