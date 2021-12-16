@@ -9,7 +9,7 @@ The README will be updated as progress is made.
 
 * Get basic version going
 * Ensure XML documentation
-* Add example usge to README.md
+* Add example usage to README.md
 * Build a fluent interface
 * Update documentation
 * Get a Github Actions pipeline going to build and publish as a NuGet package
