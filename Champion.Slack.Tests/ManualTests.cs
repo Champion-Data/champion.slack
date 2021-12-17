@@ -76,6 +76,7 @@ public class ManualTests
             }
         };
 
+        var fluentMessage = FluentSlackMessage.Create().Text("Header text").Build();
 
         var client = new HttpClient();
         var logger = this.output.BuildLoggerFor<SlackMessenger>();

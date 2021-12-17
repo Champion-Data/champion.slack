@@ -9,4 +9,3 @@ namespace Champion.Slack
         Task<HttpResponseMessage> SendAsync(SlackMessage message);
     }
 }
-

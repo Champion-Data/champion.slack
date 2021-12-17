@@ -13,3 +13,17 @@ The README will be updated as progress is made.
 * Build a fluent interface
 * Update documentation
 * Get a Github Actions pipeline going to build and publish as a NuGet package
+
+## End Goal
+
+The end goal of the project will ideally include a fluent interface for creating a Slack message using [block kit](https://api.slack.com/reference/block-kit) syntax.
+
+Rough idea would be something like the following:
+```c#
+var message = SlackMessage.With().Text("Simple message").Build();
+var message = SlackMessage.With().Blocks()
+    .Section("My header message")
+    .Divider()
+    .Section().Fields("*Field A*", "*Field B*).OfType(Markdown)
+    .Build();
+```
