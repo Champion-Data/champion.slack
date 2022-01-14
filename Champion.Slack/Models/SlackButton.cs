@@ -18,5 +18,8 @@ namespace Champion.Slack.Models
 
         [JsonPropertyName("value")]
         public string Value { get; set; }
+
+        [JsonPropertyName("style")]
+        public ButtonStyle Style { get; set; }
     }
 }

@@ -20,7 +20,8 @@ namespace Champion.Slack
             this.jsonSerializerOptions = new JsonSerializerOptions
             {
                 PropertyNameCaseInsensitive = true,
-                DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
+                DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault,
+                Converters = { new JsonStringEnumConverter(JsonNamingPolicy.CamelCase) }
             };
         }
 

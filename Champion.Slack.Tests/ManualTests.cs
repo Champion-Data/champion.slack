@@ -76,13 +76,23 @@ public class ManualTests
             }
         };
 
-        var fluentMessage = FluentSlackMessage.Create().Text("Header text").Build();
+        var fluentMessage = FluentSlackMessage.Create().Text(messageText)
+            .Blocks()
+            .Section(messageText)
+                .Button(":grin: Smile", "smile-now", "https://github.com/Champion-Data/champion.slack", "grin", ButtonStyle.Danger)
+                .Fields("*Smile*: grin")
+            .Divider()
+            .Section().Fields("Field A: :A:", "Field B: :B:")
+            .Build();
 
         var client = new HttpClient();
         var logger = this.output.BuildLoggerFor<SlackMessenger>();
         var messenger = new SlackMessenger(webHookUrl, client, logger);
-        var response = await messenger.SendAsync(slackMessage);
 
+        var response = await messenger.SendAsync(slackMessage);
+        response.IsSuccessStatusCode.Should().BeTrue();
+
+        response = await messenger.SendAsync(fluentMessage);
         response.IsSuccessStatusCode.Should().BeTrue();
     }
 }

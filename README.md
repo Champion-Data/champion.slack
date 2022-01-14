@@ -20,10 +20,12 @@ The end goal of the project will ideally include a fluent interface for creating
 
 Rough idea would be something like the following:
 ```c#
-var message = SlackMessage.With().Text("Simple message").Build();
-var message = SlackMessage.With().Blocks()
-    .Section("My header message")
+var message = FluentSlackMessage.Create().Text(messageText)
+    .Blocks()
+    .Section(messageText)
+        .Button(":grin: Smile", "smile-now", "https://github.com/Champion-Data/champion.slack", "grin", ButtonStyle.Danger)
+        .Fields("*Smile*: grin")
     .Divider()
-    .Section().Fields("*Field A*", "*Field B*).OfType(Markdown)
+    .Section().Fields("Field A: :A:", "Field B: :B:")
     .Build();
 ```

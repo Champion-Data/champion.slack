@@ -5,6 +5,15 @@ namespace Champion.Slack.Models
 {
     public class SlackBlock
     {
+        public SlackBlock(string markdownText)
+        {
+            this.Text = new SlackMarkdownText { Text = markdownText };
+        }
+
+        public SlackBlock()
+        {
+        }
+
         [JsonPropertyName("accessory")]
         public SlackButton Accessory { get; set; }
 
